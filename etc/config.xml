@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <carriers>
+            <btshippingpercustomergroup>
+                <active>1</active>
+                <title>Customer Group Wise Shipping</title>
+                <name>Shipping Per Customer Group</name>
+                <shipping_cost>10</shipping_cost>
+                <sallowspecific>0</sallowspecific>
+                <showmethod>0</showmethod>
+                <sort_order>15</sort_order>
+                <model>Bluethinkinc\ShippingPerCustomerGroup\Model\Carrier\Shipping</model>
+            </btshippingpercustomergroup>
+        </carriers>
+    </default>
+</config>

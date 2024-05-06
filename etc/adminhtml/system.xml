@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="carriers">
+            <group id="btshippingpercustomergroup" translate="label" type="text" sortOrder="160" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Shipping Per Customer Group</label>
+                <field id="active" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" canRestore='1'>
+                    <label>Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="title" translate="label" type="text" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1" canRestore='1'>
+                    <label>Title</label>
+                </field>
+                <field id="name" translate="label" type="text" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1" canRestore='1'>
+                    <label>Method Name</label>
+                </field>
+                <field id="shipping_cost" translate="label" type="text" sortOrder="4" showInDefault="1" showInWebsite="1" showInStore="1" canRestore='1'>
+                    <label>Default Shipping Cost</label>
+                </field>
+                <field id="shipping_rate" translate="label comment" type="select" sortOrder="5" showInDefault="1" showInWebsite="1" >
+                    <label>Shipping Rate </label>
+                    <source_model>Bluethinkinc\ShippingPerCustomerGroup\Model\Config\Source\ShippingCostPerCustomer</source_model>
+                </field>
+                <field id="shipping_cost_per_customer" translate="label" sortOrder="6" showInDefault="1" showInWebsite="1">
+                    <label>Shipping Cost Per Customer</label>
+                    <backend_model>Bluethinkinc\ShippingPerCustomerGroup\Block\Adminhtml\Config\Backend\ArraySerialized</backend_model>
+                    <frontend_model>Bluethinkinc\ShippingPerCustomerGroup\Block\Adminhtml\DynamicField</frontend_model>
+                </field>
+                <field id="sallowspecific" translate="label" type="select" sortOrder="7" showInDefault="1" showInWebsite="1" canRestore="1">
+                    <label>Ship to Applicable Countries</label>
+                    <frontend_class>shipping-applicable-country</frontend_class>
+                    <source_model>Magento\Shipping\Model\Config\Source\Allspecificcountries</source_model>
+                </field>
+                <field id="specificcountry" translate="label" type="multiselect" sortOrder="7" showInDefault="1" showInWebsite="1">
+                    <label>Ship to Specific Countries</label>
+                    <source_model>Magento\Directory\Model\Config\Source\Country</source_model>
+                    <can_be_empty>1</can_be_empty>
+                </field>
+                 <field id="showmethod" translate="label" type="select" sortOrder="9" showInDefault="1" showInWebsite="1">
+                    <label>Show Method if Not Applicable</label>
+                    <frontend_class>shipping-skip-hide</frontend_class>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="sort_order" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1">
+                    <label>Sort Order</label>
+                    <validate>validate-number validate-zero-or-greater</validate>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>
